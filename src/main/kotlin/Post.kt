@@ -24,6 +24,12 @@ data class Post(
                 val markedAsAds: Boolean = false,
                 val isFavorite: Boolean = false,
                 val postponedId: Int = 0
+
+
 )
 {
+    var postSource: PostSource? =null
+    var geo: Geo? = null
+    var copyHistory: CopyHistory? = null
+    var attachments: Attachments = Attachments()
 }
