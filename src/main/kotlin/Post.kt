@@ -23,13 +23,13 @@ data class Post(
                 val isPinned: Boolean = false,
                 val markedAsAds: Boolean = false,
                 val isFavorite: Boolean = false,
-                val postponedId: Int = 0
-
+                val postponedId: Int = 0,
+                val postSource: PostSource? =null,
+                val geo: Geo? = null,
+                val copyHistory: CopyHistory? = null,
+                val attachments: List<ContentInterface>? = null
 
 )
 {
-    var postSource: PostSource? =null
-    var geo: Geo? = null
-    var copyHistory: CopyHistory? = null
-    var attachments: Attachments = Attachments()
+
 }

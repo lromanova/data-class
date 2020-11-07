@@ -1,5 +1,6 @@
 fun main (){
     val wallservice: WallService = WallService()
+    val postService: PostService = PostService()
 
     val ownerId = 1
     val createdBy = 2
@@ -9,23 +10,18 @@ fun main (){
 
     val postId =  wallservice.getNextPostID()
 
-    val postToAdd1= createPost(postId,ownerId, fromId, createdBy, date, text)
+    val postToAdd1= postService.createPost(postId,ownerId, fromId, createdBy, date, text,null)
     wallservice.add(postToAdd1)
 
-    val postToAdd2= createPost(wallservice.getNextPostID(),ownerId, fromId, createdBy, date, text)
+    val postToAdd2= postService.createPost(wallservice.getNextPostID(),ownerId, fromId, createdBy, date, text,null)
     wallservice.add(postToAdd2)
 
-    val postToAUpdate= createPost(postId,ownerId + 1, fromId + 1, createdBy + 1, date, text + " updated")
+    val postToAUpdate= postService.createPost(postId,ownerId + 1, fromId + 1, createdBy + 1, date, text + " updated", null)
 
     val res = wallservice.update(postToAUpdate)
 
 
 }
 
-fun createPost(postId:Int, ownerId: Int, fromId: Int, createdBy: Int, date: Int, text: String): Post  {
 
-    val currentPost: Post = Post(id = postId,  ownerId = ownerId, fromId = fromId, createdBy = createdBy, date = date, text = text)
-
-    return currentPost
-}
 
